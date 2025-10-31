@@ -1,193 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ScholarNest — Assignment Assistance You Can Trust</title>
-  <meta name="description" content="Ethical coaching that helps students master research, writing, and coding. 24/7 support.">
+  <meta name="description" content="Ethical coaching for research, writing, coding. 24/7 support, Turnitin-aware guidance, high distinction focus.">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    /* ===================== Core theme ===================== */
-    :root{
-      --bg:#070b12; --card:rgba(255,255,255,.06); --line:rgba(255,255,255,.12);
-      --text:#e7eeff; --muted:#a6b1d7; --primary:#ffd66b; --accent:#00d0ff;
-      --radius:18px; --shadow:0 14px 40px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:transparent;overflow-x:hidden}
-    /* Site-wide background image (stays while scrolling) */
-    body::before{
-      content:""; position:fixed; inset:0; z-index:-1;
-      background:
-        radial-gradient(1200px 700px at 10% -10%, rgba(0,208,255,.12), transparent 60%),
-        radial-gradient(1000px 600px at 90% 10%, rgba(255,214,107,.12), transparent 60%),
-        url("hero-bg.jpg") center / cover no-repeat,
-        var(--bg);
-      filter:contrast(1.1) brightness(.6) saturate(1.1);
-    }
-
-    /* ===================== Nav / Brand ===================== */
-    .nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
-      max-width:1200px;margin:0 auto;padding:14px 18px;border-bottom:1px solid var(--line);
-      background:rgba(7,11,18,.6);backdrop-filter:blur(10px)}
-    .brand{display:flex;align-items:center;gap:10px;font-family:Montserrat,sans-serif;font-weight:800;letter-spacing:.4px;color:#fff;text-decoration:none;font-size:1.2rem}
-    .brand span{color:var(--primary)}
-    .brand .logo{width:28px;height:28px;object-fit:contain;display:block}
-    @media (max-width:980px){.brand .logo{width:24px;height:24px}}
-    .nav nav{display:flex;gap:18px;align-items:center}
-    .nav a{color:#fff;text-decoration:none;font-weight:700}
-    .btn{padding:12px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.08);color:#fff;font-weight:800}
-    .btn.small{padding:8px 12px;font-size:.95rem}
-    .btn.primary{background:#fff;color:#0c0f17;border-color:#fff}
-    .hamburger{display:none;background:none;border:0;width:42px;height:42px}
-    .hamburger span{display:block;height:2px;background:#fff;margin:7px 8px}
-
-    /* ===================== Hero ===================== */
-    .hero{position:relative;min-height:92vh;display:grid;place-items:center;text-align:center}
-    .hero .bg{position:absolute;inset:0;overflow:hidden}
-    .hero .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.1) brightness(.6) saturate(1.1);display:none}
-    #noise{position:absolute;inset:0;opacity:.08;mix-blend-mode:soft-light}
-    .hero .bg .overlay{position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 35%, rgba(255,255,255,.06), transparent), linear-gradient(to bottom, rgba(0,0,0,.24), rgba(0,0,0,.7))}
-    .orbs{position:absolute;inset:0;pointer-events:none}
-    .orbs span{position:absolute;width:240px;height:240px;border-radius:50%;filter:blur(14px);opacity:.4;background:radial-gradient(circle at 30% 30%, rgba(0,208,255,.8), rgba(0,208,255,0) 70%);animation:float 12s ease-in-out infinite}
-    .orbs span:nth-child(2){left:70%;top:20%;animation-duration:14s;background:radial-gradient(circle at 30% 30%, rgba(255,214,107,.9), rgba(255,214,107,0) 70%)}
-    .orbs span:nth-child(3){left:50%;top:65%;animation-duration:16s}
-    @keyframes float{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-24px) translateX(8px)}}
-
-    .hero-inner{position:relative;z-index:1;max-width:1000px;padding:0 18px}
-    .hero h1{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(2.2rem,7.5vw,4.8rem);line-height:1.1;margin:0 0 10px}
-    .hero h1 .stroke{display:inline-block;margin-top:.15em;color:transparent;-webkit-text-stroke:1px #fff;text-stroke:1px #fff}
-    .sub{color:var(--muted);max-width:760px;margin:0 auto 18px;font-size:1.1rem;line-height:1.55;letter-spacing:.1px}
-    .trust{list-style:none;display:flex;gap:12px;justify-content:center;padding:0;margin:14px 0 6px;flex-wrap:wrap}
-    .trust li{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.06);font-weight:700;color:#eaf2ff}
-    .stats{display:flex;gap:20px;justify-content:center;margin-top:18px}
-    .stats .num{display:block;font:800 2rem Montserrat}
-
-    /* ===================== Partners ===================== */
-    .partners{max-width:1100px;margin:20px auto;display:flex;gap:18px;align-items:center;justify-content:center;opacity:.85}
-    .partners img{height:44px;filter:grayscale(100%) brightness(1.2)}
-
-    /* ===================== Services ===================== */
-    .services{max-width:1200px;margin:30px auto 0;padding:0 18px;position:relative}
-    .services h2{text-align:left;font-family:Montserrat,sans-serif;letter-spacing:.2rem;font-weight:800;margin:0 0 8px}
-    .blur-blobs{position:absolute;top:-18px;right:18px;display:flex;gap:18px;pointer-events:none}
-    .blur-blobs .b1,.blur-blobs .b2{width:80px;height:36px;border-radius:999px;filter:blur(18px);opacity:.9}
-    .blur-blobs .b1{background:radial-gradient(circle, rgba(255,214,107,.85), rgba(255,214,107,0) 60%)}
-    .blur-blobs .b2{background:radial-gradient(circle, rgba(0,208,255,.85), rgba(0,208,255,0) 60%)}
-    .service-cats{list-style:none;padding:0;margin:8px 0 16px;display:flex;flex-wrap:wrap;gap:24px;color:#eaefff;opacity:.9;font-weight:700}
-    .service-cats li{position:relative}
-    .service-cats li::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:linear-gradient(90deg, rgba(255,255,255,.0), rgba(255,255,255,.5), rgba(255,255,255,.0))}
-    .pills{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
-    .pill{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid var(--line);color:#eaf2ff;font-weight:700;padding:12px 14px;border-radius:28px;text-align:left}
-    .pill::before{content:"➜";display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid var(--line)}
-    .subject-grid{margin-top:10px;display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
-    .subject-col{list-style:none;margin:0;padding:16px;background:var(--card);border:1px solid var(--line);border-radius:16px}
-    .subject-col li{margin:10px 0;padding-left:22px;position:relative;font-weight:700;border-bottom:1px solid rgba(255,255,255,.15)}
-    .subject-col li:last-child{border-bottom:0}
-    .subject-col li::before{content:"✓";position:absolute;left:0;top:0;transform:translateY(2px);color:#8fe6ff;font-weight:900}
-
-    /* ===================== Universities (inside Services) ===================== */
-    .unis{margin:18px 0 8px;padding:0 18px;text-align:center}
-    .unis h3{font-family:Montserrat,sans-serif;font-weight:800;margin:0 0 12px}
-    .uni-note{color:var(--muted);font-size:.85rem;margin-top:10px}
-    .uni-grid{list-style:none;padding:0;margin:0;display:grid;gap:16px;grid-template-columns:repeat(5, minmax(120px,1fr));align-items:center;justify-items:center}
-    .uni-grid li{width:100%;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 10px;display:grid;place-items:center;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
-    .uni-grid li:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.25);border-color:rgba(255,255,255,.22)}
-    .uni-grid img{max-width:140px;max-height:48px;width:auto;height:auto;object-fit:contain;filter:none;transition:transform .25s ease;image-rendering:-webkit-optimize-contrast}
-    .uni-grid li:hover img{transform:translateY(-1px)}
-    @media (max-width:1100px){.uni-grid{grid-template-columns:repeat(4,minmax(110px,1fr))}}
-    @media (max-width:780px){.uni-grid{grid-template-columns:repeat(3,minmax(110px,1fr))}}
-    @media (max-width:520px){.uni-grid{grid-template-columns:repeat(2,minmax(110px,1fr))}}
-
-    /* ===================== Conversion CTA ===================== */
-    .conversion{margin:24px auto 0;background:linear-gradient(135deg,var(--primary),var(--accent));color:#0b0e16;padding:18px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-    .conversion h3{margin:0}
-    .conversion p{margin:0;opacity:.9}
-
-    /* ===================== Proof ===================== */
-    .proof .wrap{max-width:1000px;margin:26px auto 0;padding:0 18px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .quote{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}
-    .quote img{width:70px;height:70px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.2);margin-bottom:8px}
-
-    /* ===================== Contact ===================== */
-    .contact{max-width:1400px;margin:30px auto 40px;padding:0 18px}
-    .contact h2{text-align:center;font-family:Montserrat,sans-serif}
-
-    /* ONE STRAIGHT LINE — never wraps (scroll horizontally on small screens) */
-    .contact-row{
-      display:flex !important; flex-wrap:nowrap !important; gap:24px;
-      justify-content:center; align-items:flex-start; width:100%; max-width:1400px;
-      margin:12px auto 0; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px;
-    }
-    .contact-row .tile{flex:0 0 300px; max-width:300px; width:300px; scroll-snap-align:start}
-
-    .tile{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
-    .tile .big{font-weight:900;font-size:1.2rem}
-    .tile .qr-inline{display:block;margin:12px auto 0;width:170px;height:170px;object-fit:contain;background:#fff;border-radius:10px;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
-    @media (max-width:980px){.tile .qr-inline{width:140px;height:140px}}
-    .tile .actions{margin-top:10px}
-    .btn.wa-btn{display:inline-flex;align-items:center;gap:8px;font-weight:800;text-decoration:none;padding:10px 14px;border-radius:14px;background:#25D366;color:#0b0e16;border:1px solid rgba(0,0,0,.15);box-shadow:0 8px 20px rgba(37,211,102,.25)}
-    .btn.wa-btn:hover{filter:brightness(1.06);box-shadow:0 10px 24px rgba(37,211,102,.35)}
-
-    /* ===================== Footer ===================== */
-    .footer{border-top:1px solid var(--line);padding:26px 18px;text-align:center;color:var(--muted)}
-
-    /* ===================== Reveal engine ===================== */
-    .reveal{opacity:0;transform:translateY(12px);will-change:transform,opacity}
-    .reveal.is-in{opacity:1;transform:none;transition:transform .8s cubic-bezier(.2,.6,0,1),opacity .8s ease}
-    [data-anim="fade-up"].is-in{animation:fadeUp .8s ease both}
-    [data-anim="fade-up-delayed"].is-in{animation:fadeUp .9s ease .15s both}
-    [data-anim="rise"].is-in{animation:rise .8s cubic-bezier(.2,.6,0,1) both}
-    [data-anim="tilt"]{transform:perspective(800px) rotateX(8deg) rotateY(-6deg) translateZ(-40px)}
-    [data-anim="tilt"].is-in{transform:perspective(800px) rotateX(0) rotateY(0) translateZ(0);transition:transform .8s cubic-bezier(.2,.6,0,1)}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-    @keyframes rise{from{opacity:0;transform:translateY(28px) scale(.98)}to{opacity:1;transform:none}}
-
-    /* ===================== Responsive tweaks ===================== */
-    @media (max-width:980px){
-      .nav nav{display:none}
-      .hamburger{display:block}
-      .cards{grid-template-columns:1fr}
-      .proof .wrap{grid-template-columns:1fr}
-      .blur-blobs{display:none}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css?v=1">
 </head>
-<body>
+<body id="top">
+
+  <!-- NAV -->
   <header class="nav">
     <a class="brand" href="#top">
-      <img class="logo" src="logo main.png" alt="ScholarNest logo">
+      <img class="logo" src="logo-main.png" alt="ScholarNest logo" />
       <span>Scholar</span>Nest
     </a>
-    <nav>
+    <nav class="nav-links">
       <a href="#services">Services</a>
-      <a href="#proof">Proof</a>
+      <a href="#universities">Universities</a>
+      <a href="#proof">Reviews</a>
       <a href="#contact" class="btn small">Contact</a>
     </nav>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
   <!-- HERO -->
-  <section class="hero" id="top">
+  <section class="hero">
     <div class="bg">
-      <img src="hero-bg.jpg" alt="Background"/>
+      <img src="hero-bg.jpg" alt="Background" />
       <canvas id="noise"></canvas>
       <div class="overlay"></div>
       <div class="orbs"><span></span><span></span><span></span></div>
     </div>
+
     <div class="hero-inner reveal" data-anim="fade-up">
       <h1>Assignment Assistance <br><span class="stroke">You Can Trust</span></h1>
-      <p class="sub">Get expert coding, research, and writing—done for you, end to end</p>
+      <p class="sub">
+        Expert help in programming, research, and writing — tailored to your rubric and deadline.
+      </p>
       <div class="cta">
-        <a href="#contact" class="btn primary">Book Your Next Assignemnt</a>
+        <a href="#contact" class="btn primary">Claim Free Consult</a>
         <a href="#services" class="btn">See Services</a>
       </div>
+
       <ul class="trust reveal" data-anim="fade-up-delayed">
+        <li>Turnitin-Aware Guidance</li>
         <li>Meets Rubric Criteria</li>
-        <li>AI Score 0% -Similarity below 7%</li>
-        <li>High Distinction Guaranteed</li>
+        <li>24/7 Support</li>
       </ul>
+
       <div class="stats reveal" data-anim="rise">
         <div><span class="num" data-count="455">0</span><small>Students Coached</small></div>
         <div><span class="num" data-count="95">0</span><small>% Satisfaction</small></div>
@@ -196,11 +60,11 @@
     </div>
   </section>
 
-  <!-- PARTNERS -->
+  <!-- PARTNERS (optional placeholders) -->
   <section class="partners reveal" data-anim="fade-up">
-    <img src="logo-1.png" alt="Logo 1"/>
-    <img src="logo-2.png" alt="Logo 2"/>
-    <img src="logo-3.png" alt="Logo 3"/>
+    <img src="logo-1.png" alt="Partner 1" loading="lazy" />
+    <img src="logo-2.png" alt="Partner 2" loading="lazy" />
+    <img src="logo-3.png" alt="Partner 3" loading="lazy" />
   </section>
 
   <!-- SERVICES -->
@@ -212,48 +76,68 @@
     </div>
 
     <ul class="service-cats reveal" data-anim="fade-up">
-      <li>Report</li><li>Presentation</li><li>Essay</li><li>Dissertation</li><li>Research Report</li>
+      <li>Report</li>
+      <li>Presentation</li>
+      <li>Essay</li>
+      <li>Research Report</li>
+      <li>Dissertation</li>
     </ul>
 
     <div class="pills">
       <button class="pill reveal" data-anim="rise">Full Assignment Assistance</button>
       <button class="pill reveal" data-anim="rise">Revision &amp; Corrections</button>
+      <button class="pill reveal" data-anim="rise">High Distinction Target</button>
       <button class="pill reveal" data-anim="rise">Turnitin Checked</button>
-      <button class="pill reveal" data-anim="rise">High-Quality Coaching</button>
       <button class="pill reveal" data-anim="rise">24/7 Support</button>
       <button class="pill reveal" data-anim="rise">Portal Check &amp; Submission Guidance</button>
     </div>
 
     <div class="subject-grid">
       <ul class="subject-col reveal" data-anim="tilt">
-        <li>Python Programming</li><li>Java Development</li><li>Database Management</li><li>Kali Linux Security</li><li>Web Development</li><li>SQL</li>
+        <li>Python Programming</li>
+        <li>Java Development</li>
+        <li>Database Management</li>
+        <li>Kali Linux Security</li>
+        <li>Web Development</li>
+        <li>SQL</li>
       </ul>
       <ul class="subject-col reveal" data-anim="tilt">
-        <li>Business Analytics</li><li>Financial Management</li><li>Strategic Management</li><li>Marketing Research</li><li>Business Law</li><li>Accounting</li>
+        <li>Business Analytics</li>
+        <li>Financial Management</li>
+        <li>Strategic Management</li>
+        <li>Marketing Research</li>
+        <li>Business Law</li>
+        <li>Accounting</li>
       </ul>
       <ul class="subject-col reveal" data-anim="tilt">
-        <li>English Literature</li><li>Sociology &amp; Psychology</li><li>Political Science</li><li>Law</li><li>Child Education</li><li>Economics</li>
+        <li>English Literature</li>
+        <li>Sociology &amp; Psychology</li>
+        <li>Political Science</li>
+        <li>Law</li>
+        <li>Child Education</li>
+        <li>Economics</li>
       </ul>
     </div>
 
-    <!-- UNIVERSITIES (no folders; all images in same dir) -->
-    <div class="unis reveal" data-anim="fade-up">
+    <!-- UNIVERSITIES -->
+    <div class="unis reveal" data-anim="fade-up" id="universities">
       <h3>Universities Our Students Study At</h3>
       <ul class="uni-grid">
-        <li><img src="vit.png" alt="Victorian Institute of Technology (VIT)"></li>
-        <li><img src="aihe.png" alt="Australian Institute of Higher Education (AIHE)"></li>
-        <li><img src="cim.png" alt="Canterbury Institute of Management (CIM)"></li>
-        <li><img src="kbs.png" alt="Kaplan Business School (KBS)"></li>
-        <li><img src="acknowledge-education.png" alt="Acknowledge Education"></li>
-        <li><img src="unimelb.png" alt="University of Melbourne"></li>
-        <li><img src="monash.png" alt="Monash University"></li>
-        <li><img src="rmit.png" alt="RMIT University"></li>
-        <li><img src="usyd.png" alt="University of Sydney"></li>
-        <li><img src="uq.png" alt="University of Queensland"></li>
+        <li><img src="vit.png" alt="Victorian Institute of Technology (VIT)" loading="lazy"></li>
+        <li><img src="aihe.png" alt="Australian Institute of Higher Education (AIHE)" loading="lazy"></li>
+        <li><img src="cim.png" alt="Canterbury Institute of Management (CIM)" loading="lazy"></li>
+        <li><img src="kbs.png" alt="Kaplan Business School (KBS)" loading="lazy"></li>
+        <li><img src="acknowledge-education.png" alt="Acknowledge Education" loading="lazy"></li>
+        <li><img src="unimelb.png" alt="University of Melbourne" loading="lazy"></li>
+        <li><img src="monash.png" alt="Monash University" loading="lazy"></li>
+        <li><img src="rmit.png" alt="RMIT University" loading="lazy"></li>
+        <li><img src="usyd.png" alt="University of Sydney" loading="lazy"></li>
+        <li><img src="uq.png" alt="University of Queensland" loading="lazy"></li>
       </ul>
       <p class="uni-note">Logos shown for identification only; no affiliation implied.</p>
     </div>
 
+    <!-- CTA -->
     <div class="conversion reveal" data-anim="rise">
       <h3>Ready to start?</h3>
       <p>Get a free mini-plan for your next assignment in 15 minutes.</p>
@@ -261,18 +145,18 @@
     </div>
   </section>
 
-  <!-- PROOF -->
+  <!-- REVIEWS -->
   <section class="proof" id="proof">
     <div class="wrap">
       <div class="quote reveal" data-anim="fade-up">
-        <img src="avatar-1.jpg" alt="Student 1"/>
-        <blockquote>“They didn’t do the work for me—they showed me how to do it right. I finally get citations.”</blockquote>
-        <cite>— Abir Rahman., Melbourne</cite>
+        <img src="avatar-1.jpg" alt="Student 1" loading="lazy" />
+        <blockquote>“They didn’t do the work for me — they coached me to do it right. Finally understand citations!”</blockquote>
+        <cite>— A. Rahman, Melbourne</cite>
       </div>
       <div class="quote reveal" data-anim="fade-up">
-        <img src="avatar-2.jpg" alt="Student 2"/>
-        <blockquote>“I was stuck on SQL joins. One session and it clicked.”</blockquote>
-        <cite>— Sourov Islam, Sydney</cite>
+        <img src="avatar-2.jpg" alt="Student 2" loading="lazy" />
+        <blockquote>“Was stuck on SQL joins. One session and it clicked.”</blockquote>
+        <cite>— S. Islam, Sydney</cite>
       </div>
     </div>
   </section>
@@ -281,30 +165,57 @@
   <section class="contact" id="contact">
     <h2 class="reveal" data-anim="fade-up">Contact Us 24/7</h2>
 
+    <!-- One straight row (never wraps; scrolls horizontally on small screens) -->
     <div class="contact-row">
+
       <!-- AU WhatsApp -->
       <div class="tile reveal" data-anim="rise">
         <h3>Call / WhatsApp (AU)</h3>
-        <p class="big">+61 490 111 000</p>
-        <div class="actions"><a class="btn wa-btn" href="https://www.amazon.com/404" target="_blank" rel="noopener">💬 Click here</a></div>
-        <img class="qr-inline" src="qr-au.png" alt="Scan for WhatsApp (AU)">
+        <p class="big">
+          <a class="wa" href="tel:+61490111373">+61 490 111 373</a>
+        </p>
+        <div class="actions">
+          <a class="btn wa-btn" href="https://wa.me/61490111373?text=Hi%20ScholarNest%2C%20I%27d%20like%20help%20with%20my%20assignment." target="_blank" rel="noopener">💬 Click here</a>
+        </div>
+        <a href="https://wa.me/61490111373" target="_blank" rel="noopener">
+          <img class="qr-inline" src="qr-au.png" alt="Scan or tap to WhatsApp (AU)">
+        </a>
       </div>
 
       <!-- BD Telegram -->
       <div class="tile reveal" data-anim="rise">
         <h3>Call / Telegram (BD)</h3>
-        <p class="big">+8801706260718</p>
-        <div class="actions"><a class="btn wa-btn" href="https://t.me/tayeb10" target="_blank" rel="noopener">💬 Click here</a></div>
-        <img class="qr-inline" src="qr-tel.png" alt="Scan for Telegram (BD)">
+        <p class="big">
+          <a class="wa" href="tel:+8801706260718">+880 1706 260 718</a>
+        </p>
+        <div class="actions">
+          <a class="btn wa-btn" href="https://t.me/yourTelegramUsername" target="_blank" rel="noopener">💬 Click here</a>
+        </div>
+        <a href="https://t.me/yourTelegramUsername" target="_blank" rel="noopener">
+          <img class="qr-inline" src="qr-tel.png" alt="Scan or tap to Telegram (BD)">
+        </a>
       </div>
 
       <!-- BD WhatsApp -->
       <div class="tile reveal" data-anim="rise">
         <h3>Call / WhatsApp (BD)</h3>
-        <p class="big">+8801706260718</p>
-        <div class="actions"><a class="btn wa-btn" href="https://wa.link/k7db1q" target="_blank" rel="noopener">💬 Click here</a></div>
-        <img class="qr-inline" src="qr-bd.png" alt="Scan for WhatsApp (BD)">
+        <p class="big">
+          <a class="wa" href="tel:+8801706260718">+880 1706 260 718</a>
+        </p>
+        <div class="actions">
+          <a class="btn wa-btn" href="https://wa.me/8801706260718?text=Hi%20ScholarNest%2C%20I%27d%20like%20help%20with%20my%20assignment." target="_blank" rel="noopener">💬 Click here</a>
+        </div>
+        <a href="https://wa.me/8801706260718" target="_blank" rel="noopener">
+          <img class="qr-inline" src="qr-bd.png" alt="Scan or tap to WhatsApp (BD)">
+        </a>
       </div>
+
+      <!-- (Optional) Another AU/BD tile if needed -->
+      <!--
+      <div class="tile reveal" data-anim="rise">
+        ...
+      </div>
+      -->
     </div>
   </section>
 
@@ -312,66 +223,6 @@
     <p>© <span id="year"></span> ScholarNest — Ethical Academic Support</p>
   </footer>
 
-  <script>
-    // Animations, counters, noise background, and nav toggle
-    (function(){
-      const ready = (fn)=> document.readyState!=='loading' ? fn() : document.addEventListener('DOMContentLoaded', fn);
-      ready(()=>{
-        // reveal
-        const reveals = Array.from(document.querySelectorAll('.reveal'));
-        if('IntersectionObserver' in window){
-          const io = new IntersectionObserver((entries)=>{
-            entries.forEach(e=>{
-              if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
-            });
-          }, {threshold:0.12});
-          reveals.forEach(el=> io.observe(el));
-        } else { reveals.forEach(el=> el.classList.add('is-in')); }
-
-        // counters
-        const counters = Array.from(document.querySelectorAll('.num'));
-        const startCounter = (el)=>{
-          const to = parseInt(el.dataset.count||'0',10);
-          let cur = 0; const step = Math.max(1, Math.round(to/60));
-          const tick = ()=>{ cur+=step; if(cur>=to){el.textContent=to;} else {el.textContent=cur; requestAnimationFrame(tick);} };
-          tick();
-        };
-        if('IntersectionObserver' in window){
-          const io2 = new IntersectionObserver((ents)=>{
-            ents.forEach(e=>{ if(e.isIntersecting){ startCounter(e.target); io2.unobserve(e.target); } });
-          }, {threshold:0.4});
-          counters.forEach(el=> io2.observe(el));
-        } else { counters.forEach(startCounter); }
-
-        // mobile nav
-        document.querySelector('.hamburger')?.addEventListener('click', ()=>{
-          const nav = document.querySelector('.nav nav');
-          nav.style.display = getComputedStyle(nav).display==='none' ? 'flex' : 'none';
-        });
-
-        // year
-        const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
-
-        // noise canvas
-        const canvas = document.getElementById('noise');
-        if(canvas && canvas.getContext){
-          const ctx = canvas.getContext('2d');
-          const resize = ()=>{ canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
-          window.addEventListener('resize', resize); resize();
-          (function render(){
-            const w=canvas.width, h=canvas.height;
-            const img = ctx.createImageData(w,h);
-            const data = img.data;
-            for(let i=0;i<data.length;i+=4){
-              const n = (Math.random()*255)|0;
-              data[i]=data[i+1]=data[i+2]=n; data[i+3]=18;
-            }
-            ctx.putImageData(img,0,0);
-            requestAnimationFrame(render);
-          })();
-        }
-      });
-    })();
-  </script>
+  <script src="script.js?v=1" defer></script>
 </body>
 </html>
