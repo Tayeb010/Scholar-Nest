@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ScholarNest — Assignment Assistance You Can Trust</title>
-  <meta name="description" content="Ethical coaching for research, writing, coding. 24/7 support, Turnitin-aware guidance, high distinction focus.">
+  <title>AssignFinity — Assignment Assistance You Can Trust</title>
+  <meta name="description" content="AssignFinity provides expert coaching for research, writing, and coding. 24/7 support, Turnitin-aware guidance, and high distinction focus.">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=1">
+  <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body id="top">
 
   <!-- NAV -->
   <header class="nav">
     <a class="brand" href="#top">
-      <img class="logo" src="logo-main.png" alt="ScholarNest logo" />
-      <span>Scholar</span>Nest
+      <img class="logo" src="logo-main.png" alt="AssignFinity logo" />
+      <span>AssignFinity
     </a>
     <nav class="nav-links">
       <a href="#services">Services</a>
@@ -27,42 +27,55 @@
     </button>
   </header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="bg">
-      <img src="hero-bg.jpg" alt="Background" />
-      <canvas id="noise"></canvas>
-      <div class="overlay"></div>
-      <div class="orbs"><span></span><span></span><span></span></div>
+ <!-- HERO -->
+<section class="hero">
+  <div class="bg">
+    <img src="hero-bg.jpg" alt="Background" />
+    <canvas id="noise"></canvas>
+    <div class="overlay"></div>
+    <div class="orbs"><span></span><span></span><span></span></div>
+  </div>
+
+  <div class="hero-inner reveal" data-anim="fade-up">
+    <h1 class="hero-title">
+      <span id="type-line-1"></span><br>
+      <span id="type-line-2" class="stroke"></span>
+    </h1>
+
+    <p class="sub">
+      AssignFinity guides you through coding, research, and writing — aligned with your rubric and deadline.
+    </p>
+
+    <div class="cta">
+      <a href="#contact" class="btn primary">Claim Free Consult</a>
+      <a href="#services" class="btn">See Services</a>
     </div>
+    <br>
+    <ul class="trust reveal" data-anim="fade-up-delayed">
+      <li>Turnitin-Aware Guidance</li>
+      <li>Meets Rubric Criteria</li>
+      <li>24/7 Support</li>
+    </ul>
 
-    <div class="hero-inner reveal" data-anim="fade-up">
-      <h1>Assignment Assistance <br><span class="stroke">You Can Trust</span></h1>
-      <p class="sub">
-        Get expert coding, research, and writing—done for you, end to end
-        <br>
-      </p>
-      <div class="cta">
-        <a href="#contact" class="btn primary">Claim Free Consult</a>
-        <a href="#services" class="btn">See Services</a>
+    <div class="stats reveal" data-anim="rise">
+      <div>
+        <span class="num" data-count="455">0</span>
+        <small>Students Coached</small>
       </div>
-      <br>
-
-      <ul class="trust reveal" data-anim="fade-up-delayed">
-        <li>Meets Rubric Criteria</li>
-        <li>AI Score 0% -Similarity below 7%</li>
-        <li>High Distinction Guaranteed</li>
-      </ul>
-
-      <div class="stats reveal" data-anim="rise">
-        <div><span class="num" data-count="455">0</span><small>Students Coached</small></div>
-        <div><span class="num" data-count="95">0</span><small>% Satisfaction</small></div>
-        <div><span class="num" data-count="24">0</span><small>Hr Support</small></div>
+      <div>
+        <span class="num" data-count="95">0</span>
+        <small>% Satisfaction</small>
+      </div>
+      <div>
+        <span class="num" data-count="24">0</span>
+        <small>Hr Support</small>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PARTNERS (optional placeholders) -->
+
+  <!-- PARTNERS -->
   <section class="partners reveal" data-anim="fade-up">
     <img src="logo-1.png" alt="Partner 1" loading="lazy" />
     <img src="logo-2.png" alt="Partner 2" loading="lazy" />
@@ -151,13 +164,13 @@
   <section class="proof" id="proof">
     <div class="wrap">
       <div class="quote reveal" data-anim="fade-up">
-        <img src="avatar-1.jpg" alt="Student 1" loading="lazy" />
-        <blockquote>“They didn’t do the work for me — they coached me to do it right. Finally understand citations!”</blockquote>
+        <img src="avatar-1.jpg" alt="Student review 1" loading="lazy" />
+        <blockquote>“Just order, send your files, and relax. A high distinction awaits.”</blockquote>
         <cite>— A. Rahman, Melbourne</cite>
       </div>
       <div class="quote reveal" data-anim="fade-up">
-        <img src="avatar-2.jpg" alt="Student 2" loading="lazy" />
-        <blockquote>“Was stuck on SQL joins. One session and it clicked.”</blockquote>
+        <img src="avatar-2.jpg" alt="Student review 2" loading="lazy" />
+        <blockquote>“They offer the best way to secure your mark without the stress.”</blockquote>
         <cite>— S. Islam, Sydney</cite>
       </div>
     </div>
@@ -165,9 +178,9 @@
 
   <!-- CONTACT -->
   <section class="contact" id="contact">
-    <h2 class="reveal" data-anim="fade-up">Contact Us 24/7</h2>
+    <h2 class="reveal" data-anim="fade-up">Contact AssignFinity 24/7</h2>
 
-    <!-- One straight row (never wraps; scrolls horizontally on small screens) -->
+    <!-- One straight row (swipeable on mobile) -->
     <div class="contact-row">
 
       <!-- AU WhatsApp -->
@@ -177,7 +190,9 @@
           <a class="wa" href="tel:+61490111373">+61 490 111 373</a>
         </p>
         <div class="actions">
-          <a class="btn wa-btn" href="https://wa.me/61490111373?text=Hi%20ScholarNest%2C%20I%27d%20like%20help%20with%20my%20assignment." target="_blank" rel="noopener">💬 Click here</a>
+          <a class="btn wa-btn" href="https://wa.me/61490111373?text=Hi%20AssignFinity%2C%20I%27d%20like%20help%20with%20my%20assignment." target="_blank" rel="noopener">
+            💬 Click here
+          </a>
         </div>
         <a href="https://wa.me/61490111373" target="_blank" rel="noopener">
           <img class="qr-inline" src="qr-au.png" alt="Scan or tap to WhatsApp (AU)">
@@ -191,7 +206,9 @@
           <a class="wa" href="tel:+8801706260718">+880 1706 260 718</a>
         </p>
         <div class="actions">
-          <a class="btn wa-btn" href="https://t.me/yourTelegramUsername" target="_blank" rel="noopener">💬 Click here</a>
+          <a class="btn wa-btn" href="https://t.me/yourTelegramUsername" target="_blank" rel="noopener">
+            💬 Click here
+          </a>
         </div>
         <a href="https://t.me/yourTelegramUsername" target="_blank" rel="noopener">
           <img class="qr-inline" src="qr-tel.png" alt="Scan or tap to Telegram (BD)">
@@ -205,26 +222,23 @@
           <a class="wa" href="tel:+8801706260718">+880 1706 260 718</a>
         </p>
         <div class="actions">
-          <a class="btn wa-btn" href="https://wa.me/8801706260718?text=Hi%20ScholarNest%2C%20I%27d%20like%20help%20with%20my%20assignment." target="_blank" rel="noopener">💬 Click here</a>
+          <a class="btn wa-btn" href="https://wa.me/8801706260718?text=Hi%20AssignFinity%2C%20I%27d%20like%20help%20with%20my%20assignment." target="_blank" rel="noopener">
+            💬 Click here
+          </a>
         </div>
         <a href="https://wa.me/8801706260718" target="_blank" rel="noopener">
           <img class="qr-inline" src="qr-bd.png" alt="Scan or tap to WhatsApp (BD)">
         </a>
       </div>
 
-      <!-- (Optional) Another AU/BD tile if needed -->
-      <!--
-      <div class="tile reveal" data-anim="rise">
-        ...
-      </div>
-      -->
     </div>
   </section>
 
   <footer class="footer">
-    <p>© <span id="year"></span> ScholarNest — Ethical Academic Support</p>
+    <p>© <span id="year"></span> AssignFinity — Ethical Academic Support</p>
   </footer>
 
-  <script src="script.js?v=1" defer></script>
+  <script src="script.js?v=2" defer></script>
 </body>
 </html>
+
