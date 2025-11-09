@@ -14,11 +14,12 @@
   <header class="nav">
     <a class="brand" href="#top">
       <img class="logo" src="logo-main.png" alt="AssignFinity logo" />
-      <span>AssignFinity
+      <span>AssignFinity</span>
     </a>
     <nav class="nav-links">
       <a href="#services">Services</a>
       <a href="#universities">Universities</a>
+      <a href="#experts">Experts</a>
       <a href="#proof">Reviews</a>
       <a href="#contact" class="btn small">Contact</a>
     </nav>
@@ -27,54 +28,61 @@
     </button>
   </header>
 
- <!-- HERO -->
-<section class="hero">
-  <div class="bg">
-    <img src="hero-bg.jpg" alt="Background" />
-    <canvas id="noise"></canvas>
-    <div class="overlay"></div>
-    <div class="orbs"><span></span><span></span><span></span></div>
-  </div>
-
-  <div class="hero-inner reveal" data-anim="fade-up">
-    <h1 class="hero-title">
-  <span id="type-line-1"></span><br>
-  <span id="type-line-2" class="stroke"></span>
-</h1>
-
-
-    <p class="sub">
-      AssignFinity guides you through coding, research, and writing — aligned with your rubric and deadline.
-    </p>
-
-    <div class="cta">
-      <a href="#contact" class="btn primary">Claim Free Consult</a>
-      <a href="#services" class="btn">See Services</a>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="bg">
+      <img src="hero-bg.jpg" alt="Background" />
+      <canvas id="noise"></canvas>
+      <div class="overlay"></div>
+      <div class="orbs"><span></span><span></span><span></span></div>
     </div>
-    <br>
-    <ul class="trust reveal" data-anim="fade-up-delayed">
-      <li>Turnitin-Aware Guidance</li>
-      <li>Meets Rubric Criteria</li>
-      <li>24/7 Support</li>
-    </ul>
 
-    <div class="stats reveal" data-anim="rise">
-      <div>
-        <span class="num" data-count="455">0</span>
-        <small>Students Coached</small>
+    <div class="hero-inner reveal" data-anim="fade-up">
+
+      <!-- hero brand in the middle -->
+      <div class="hero-brand reveal" data-anim="fade-up-delayed">
+        <img src="logo-main.png" alt="AssignFinity logo" class="hero-logo">
+        <span class="hero-name">AssignFinity</span>
+        <span class="hero-tag">Ethical Academic Coaching</span>
       </div>
-      <div>
-        <span class="num" data-count="95">0</span>
-        <small>% Satisfaction</small>
+
+      <!-- Typing heading -->
+      <h1 class="hero-title">
+        <span id="type-line-1"></span><br>
+        <span id="type-line-2" class="stroke"></span>
+      </h1>
+
+      <p class="sub">
+        AssignFinity guides you through coding, research, and writing — aligned with your rubric and deadline.
+      </p>
+
+      <div class="cta">
+        <a href="#contact" class="btn primary">Claim Free Consult</a>
+        <a href="#services" class="btn">See Services</a>
       </div>
-      <div>
-        <span class="num" data-count="24">0</span>
-        <small>Hr Support</small>
+
+      <ul class="trust reveal" data-anim="fade-up-delayed">
+        <li>Turnitin-Aware Guidance</li>
+        <li>Meets Rubric Criteria</li>
+        <li>24/7 Support</li>
+      </ul>
+
+      <div class="stats reveal" data-anim="rise">
+        <div>
+          <span class="num" data-count="455">0</span>
+          <small>Students Coached</small>
+        </div>
+        <div>
+          <span class="num" data-count="95">0</span>
+          <small>% Satisfaction</small>
+        </div>
+        <div>
+          <span class="num" data-count="24">0</span>
+          <small>Hr Support</small>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- PARTNERS -->
   <section class="partners reveal" data-anim="fade-up">
@@ -161,6 +169,122 @@
     </div>
   </section>
 
+  <!-- EXPERT WRITER TEAM -->
+  <section class="experts" id="experts">
+    <div class="experts-inner">
+      <div class="experts-copy reveal" data-anim="slide-left">
+        <h2>About Our Expert Writer Team</h2>
+        <p>
+          AssignFinity works with a carefully selected network of academic and industry specialists.
+          Every writer understands referencing, rubric mapping, and Turnitin-safe coaching.
+        </p>
+        <p>
+          You always work with someone who knows your discipline, not a generic content writer.
+        </p>
+      </div>
+
+      <div class="experts-grid">
+
+        <!-- 1. Tayeb Hossain -->
+        <article class="expert-card reveal" data-anim="rise">
+          <img src="writer-1.jpg" alt="Tayeb Hossain" class="expert-photo">
+          <h3 class="expert-name">Tayeb Hossain</h3>
+          <p class="expert-uni">IBA, University of Rajshahi</p>
+          <p class="expert-role">Business Analytics · Financial Management · Accounting</p>
+        </article>
+
+        <!-- 2. Sadia Afrin -->
+        <article class="expert-card reveal" data-anim="slide-right">
+          <img src="writer-2.jpg" alt="Sadia Afrin" class="expert-photo">
+          <h3 class="expert-name">Sadia Afrin</h3>
+          <p class="expert-uni">Bangladesh University of Engineering and Technology (BUET)</p>
+          <p class="expert-role">Python Programming · Java Development · Web Development</p>
+        </article>
+
+        <!-- 3. Rohan Gupta -->
+        <article class="expert-card reveal" data-anim="slide-left">
+          <img src="writer-3.jpg" alt="Rohan Gupta" class="expert-photo">
+          <h3 class="expert-name">Rohan Gupta</h3>
+          <p class="expert-uni">Indian Institute of Technology (IIT), Bombay</p>
+          <p class="expert-role">Database Management · SQL · Advanced Algorithms</p>
+        </article>
+
+        <!-- 4. Bilal Malik -->
+        <article class="expert-card reveal" data-anim="rise">
+          <img src="writer-4.jpg" alt="Bilal Malik" class="expert-photo">
+          <h3 class="expert-name">Bilal Malik 🔒</h3>
+          <p class="expert-uni">National University of Sciences &amp; Technology (NUST)</p>
+          <p class="expert-role">Kali Linux Security · Penetration Testing · Cybersecurity</p>
+        </article>
+
+        <!-- 5. Arjun Malhotra -->
+        <article class="expert-card reveal" data-anim="slide-right">
+          <img src="writer-5.jpg" alt="Arjun Malhotra" class="expert-photo">
+          <h3 class="expert-name">Arjun Malhotra</h3>
+          <p class="expert-uni">Indian Institute of Management (IIM), Ahmedabad</p>
+          <p class="expert-role">Strategic Management · Marketing Research</p>
+        </article>
+
+        <!-- 6. Ayesha Khan -->
+        <article class="expert-card reveal" data-anim="slide-left">
+          <img src="writer-6.jpg" alt="Ayesha Khan" class="expert-photo">
+          <h3 class="expert-name">Ayesha Khan</h3>
+          <p class="expert-uni">Lahore University of Management Sciences (LUMS)</p>
+          <p class="expert-role">Business Law · Corporate Law</p>
+        </article>
+
+        <!-- 7. Prof. Usman Ali -->
+        <article class="expert-card reveal" data-anim="rise">
+          <img src="writer-7.jpg" alt="Prof. Usman Ali" class="expert-photo">
+          <h3 class="expert-name">Prof. Usman Ali 📚</h3>
+          <p class="expert-uni">University of Karachi</p>
+          <p class="expert-role">English Literature · Political Science · Critical Theory</p>
+        </article>
+
+        <!-- 8. Farida Hossain -->
+        <article class="expert-card reveal" data-anim="slide-right">
+          <img src="writer-8.jpg" alt="Farida Hossain" class="expert-photo">
+          <h3 class="expert-name">Farida Hossain</h3>
+          <p class="expert-uni">University of Rajshahi</p>
+          <p class="expert-role">Sociology · Psychology · Child Education</p>
+        </article>
+
+        <!-- 9. Minhaz Ahmed -->
+        <article class="expert-card reveal" data-anim="slide-left">
+          <img src="writer-9.jpg" alt="Minhaz Ahmed" class="expert-photo">
+          <h3 class="expert-name">Minhaz Ahmed 📈</h3>
+          <p class="expert-uni">Jahangirnagar University</p>
+          <p class="expert-role">Economics · Econometrics · Quantitative Analysis</p>
+        </article>
+
+        <!-- 10. Dr. Priya Sharma -->
+        <article class="expert-card reveal" data-anim="rise">
+          <img src="writer-10.jpg" alt="Dr. Priya Sharma" class="expert-photo">
+          <h3 class="expert-name">Dr. Priya Sharma</h3>
+          <p class="expert-uni">University of Delhi</p>
+          <p class="expert-role">International Finance · Accounting Standards · Risk Management</p>
+        </article>
+
+        <!-- 11. Zahid Hasan -->
+        <article class="expert-card reveal" data-anim="slide-right">
+          <img src="writer-11.jpg" alt="Zahid Hasan" class="expert-photo">
+          <h3 class="expert-name">Zahid Hasan</h3>
+          <p class="expert-uni">University of Melbourne</p>
+          <p class="expert-role">Report Writing · Presentation Design · Dissertation Support</p>
+        </article>
+
+        <!-- 12. Neha Kapoor -->
+        <article class="expert-card reveal" data-anim="slide-left">
+          <img src="writer-12.jpg" alt="Neha Kapoor" class="expert-photo">
+          <h3 class="expert-name">Neha Kapoor</h3>
+          <p class="expert-uni">Monash University</p>
+          <p class="expert-role">Data Science · Machine Learning · Business Analytics</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
   <!-- REVIEWS -->
   <section class="proof" id="proof">
     <div class="wrap">
@@ -243,4 +367,3 @@
 
 </body>
 </html>
-
