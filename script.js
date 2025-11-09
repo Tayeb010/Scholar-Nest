@@ -1,4 +1,4 @@
-// Reveal-on-scroll, counters, mobile nav, noise background
+// Reveal-on-scroll, counters, mobile nav, noise background + typing
 (function () {
   const ready = (fn) =>
     document.readyState !== "loading"
@@ -6,6 +6,8 @@
       : document.addEventListener("DOMContentLoaded", fn);
 
   ready(() => {
+    console.log("AssignFinity script loaded"); // quick check in browser console
+
     // Reveal engine
     const reveals = Array.from(document.querySelectorAll(".reveal"));
     if ("IntersectionObserver" in window) {
@@ -61,7 +63,7 @@
     }
 
     // === Typing effect for hero title ===
-    // expects HTML:
+    // expects:
     // <h1 class="hero-title">
     //   <span id="type-line-1"></span><br>
     //   <span id="type-line-2" class="stroke"></span>
@@ -97,6 +99,8 @@
       typeText(line1El, text1, () => {
         typeText(line2El, text2);
       });
+    } else {
+      console.warn("Typing elements not found (check IDs type-line-1 / type-line-2).");
     }
 
     // Mobile nav
@@ -142,4 +146,3 @@
     }
   });
 })();
-
