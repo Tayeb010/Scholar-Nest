@@ -6,9 +6,9 @@
       : document.addEventListener("DOMContentLoaded", fn);
 
   ready(() => {
-    console.log("AssignFinity script loaded"); // quick check in browser console
+    console.log("AssignFinity script loaded");
 
-    // Reveal engine
+    /* ---------- Reveal engine ---------- */
     const reveals = Array.from(document.querySelectorAll(".reveal"));
     if ("IntersectionObserver" in window) {
       const io = new IntersectionObserver(
@@ -27,7 +27,7 @@
       reveals.forEach((el) => el.classList.add("is-in"));
     }
 
-    // Counters
+    /* ---------- Counters ---------- */
     const counters = Array.from(document.querySelectorAll(".num"));
     const startCounter = (el) => {
       const to = parseInt(el.dataset.count || "0", 10);
@@ -62,12 +62,7 @@
       counters.forEach(startCounter);
     }
 
-    // === Typing effect for hero title ===
-    // expects:
-    // <h1 class="hero-title">
-    //   <span id="type-line-1"></span><br>
-    //   <span id="type-line-2" class="stroke"></span>
-    // </h1>
+    /* ---------- Typing effect for hero title ---------- */
     const line1El = document.getElementById("type-line-1");
     const line2El = document.getElementById("type-line-2");
 
@@ -95,7 +90,6 @@
         step();
       };
 
-      // Start typing when page loads
       typeText(line1El, text1, () => {
         typeText(line2El, text2);
       });
@@ -103,7 +97,7 @@
       console.warn("Typing elements not found (check IDs type-line-1 / type-line-2).");
     }
 
-    // Mobile nav
+    /* ---------- Mobile nav ---------- */
     const burger = document.querySelector(".hamburger");
     const links = document.querySelector(".nav-links");
     if (burger && links) {
@@ -113,11 +107,11 @@
       });
     }
 
-    // Footer year
+    /* ---------- Footer year ---------- */
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Noise canvas
+    /* ---------- Noise canvas ---------- */
     const canvas = document.getElementById("noise");
     if (canvas && canvas.getContext) {
       const ctx = canvas.getContext("2d");
