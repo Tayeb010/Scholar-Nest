@@ -1,4 +1,4 @@
-// Minimal JS: reveal-on-scroll, counters, mobile menu, noise canvas
+// Reveal-on-scroll, counters, mobile nav, noise background
 (function () {
   const ready = (fn) =>
     document.readyState !== "loading"
@@ -22,7 +22,6 @@
       );
       reveals.forEach((el) => io.observe(el));
     } else {
-      // Fallback
       reveals.forEach((el) => el.classList.add("is-in"));
     }
 
@@ -43,6 +42,7 @@
       };
       tick();
     };
+
     if ("IntersectionObserver" in window) {
       const io2 = new IntersectionObserver(
         (ents) => {
@@ -60,6 +60,45 @@
       counters.forEach(startCounter);
     }
 
+    // === Typing effect for hero title ===
+    // expects HTML:
+    // <h1 class="hero-title">
+    //   <span id="type-line-1"></span><br>
+    //   <span id="type-line-2" class="stroke"></span>
+    // </h1>
+    const line1El = document.getElementById("type-line-1");
+    const line2El = document.getElementById("type-line-2");
+
+    if (line1El && line2El) {
+      const text1 = "Assignment Assistance";
+      const text2 = "You Can Trust";
+      const speed = 70; // ms per character
+
+      const typeText = (el, text, cb) => {
+        el.textContent = "";
+        el.classList.add("typing-caret");
+        let i = 0;
+
+        const step = () => {
+          if (i < text.length) {
+            el.textContent += text.charAt(i);
+            i++;
+            setTimeout(step, speed);
+          } else {
+            el.classList.remove("typing-caret");
+            if (typeof cb === "function") cb();
+          }
+        };
+
+        step();
+      };
+
+      // Start typing when page loads
+      typeText(line1El, text1, () => {
+        typeText(line2El, text2);
+      });
+    }
+
     // Mobile nav
     const burger = document.querySelector(".hamburger");
     const links = document.querySelector(".nav-links");
@@ -70,14 +109,15 @@
       });
     }
 
-    // Year
+    // Footer year
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
 
-    // Noise canvas background
+    // Noise canvas
     const canvas = document.getElementById("noise");
     if (canvas && canvas.getContext) {
       const ctx = canvas.getContext("2d");
+
       const resize = () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -89,14 +129,17 @@
         const { width: w, height: h } = canvas;
         const img = ctx.createImageData(w, h);
         const data = img.data;
+
         for (let i = 0; i < data.length; i += 4) {
           const n = (Math.random() * 255) | 0;
           data[i] = data[i + 1] = data[i + 2] = n;
-          data[i + 3] = 18; // low opacity for subtle grain
+          data[i + 3] = 18; // subtle grain
         }
+
         ctx.putImageData(img, 0, 0);
         requestAnimationFrame(render);
       })();
     }
   });
 })();
+
