@@ -253,11 +253,14 @@ body::before{
 
 /* ================ EXPERTS (12 writers) ================= */
 .experts{
-  max-width:1200px;margin:40px auto 0;padding:0 18px 10px;
+  max-width:1200px;
+  margin:40px auto 0;
+  padding:0 18px 10px;
 }
 .experts-inner{
   background:rgba(7,11,18,.88);
-  border-radius:24px;border:1px solid var(--line);
+  border-radius:24px;
+  border:1px solid var(--line);
   box-shadow:var(--shadow);
   padding:20px 18px 22px;
 }
@@ -271,15 +274,14 @@ body::before{
   font-size:.9rem;
 }
 
-/* GRID: 6 per row desktop */
+/* Desktop: 6 per row, neat and compact */
 .experts-grid{
   margin-top:16px;
   display:grid;
   grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:12px;
+  gap:14px;
 }
 
-/* CARD: smaller, centered */
 .expert-card{
   background:var(--card);
   border-radius:16px;
@@ -291,18 +293,16 @@ body::before{
   align-items:center;
 }
 
-/* PHOTO: small circle */
 .expert-photo{
   width:80%;
-  max-width:120px;
+  max-width:110px;
   aspect-ratio:1/1;
   border-radius:50%;
   object-fit:cover;
-  margin:0 auto 8px;
+  margin:0 auto 6px;
   box-shadow:0 6px 16px rgba(0,0,0,.35);
 }
 
-/* TEXT: centered, compact */
 .expert-name{
   margin:0 0 2px;
   font-size:.9rem;
@@ -310,26 +310,89 @@ body::before{
 }
 .expert-uni{
   margin:0 0 4px;
-  font-size:.75rem;
+  font-size:.78rem;
   color:var(--muted);
 }
 .expert-role{
   margin:0;
-  font-size:.75rem;
+  font-size:.76rem;
   font-weight:600;
   color:#e7f9ff;
 }
 
-/* responsive: 4 per row mid, 3 per row on phone */
+/* ---------- Medium screens (tablets / small laptops) ---------- */
 @media (max-width:1100px){
-  .experts-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .experts-grid{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:12px;
+  }
+  .expert-photo{
+    max-width:100px;
+  }
+  .expert-name{font-size:0.85rem;}
+  .expert-uni,
+  .expert-role{font-size:0.73rem;}
 }
+
+/* ---------- Phones (most clients) ---------- */
 @media (max-width:780px){
-  .experts-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .experts-inner{
+    padding:18px 14px 18px;
+  }
+
+  /* 2 cards per row = much clearer */
+  .experts-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .expert-card{
+    padding:8px 6px 10px;
+  }
+
+  .expert-photo{
+    max-width:90px;
+    margin-bottom:6px;
+  }
+
+  .expert-name{
+    font-size:0.82rem;
+    line-height:1.15;
+  }
+  .expert-uni,
+  .expert-role{
+    font-size:0.7rem;
+    line-height:1.2;
+  }
 }
+
+/* ---------- Very small phones ---------- */
 @media (max-width:480px){
-  .experts-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .experts-grid{
+    grid-template-columns:1fr 1fr; /* still 2 per row, but tighter */
+    gap:10px;
+  }
+
+  .expert-photo{
+    max-width:76px;
+  }
+
+  .expert-name{
+    font-size:0.78rem;
+  }
+  .expert-uni,
+  .expert-role{
+    font-size:0.66rem;
+  }
 }
+
+/* ---------- Ultra small / narrow (optional) ---------- */
+@media (max-width:360px){
+  .experts-grid{
+    grid-template-columns:1fr; /* 1 per row so nothing is cramped */
+  }
+}
+
 
 /* ================ Reviews ================ */
 .proof .wrap{
